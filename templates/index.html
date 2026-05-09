@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para Mariana</title>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -65,39 +65,43 @@
             bottom: 20px;
             width: 100%;
             text-align: center;
-            font-family: 'Caveat', cursive;
-            font-size: 24px;
-            color: #fff;
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            color: #8b6f47;
             z-index: 4;
+            font-weight: 700;
+            letter-spacing: 2px;
         }
 
         /* --- SESSÃO 2: CARTA --- */
         #letter-container {
             display: none;
             width: 90%;
-            max-width: 600px;
-            background-color: #fbf5e9;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            border-radius: 5px;
-            background-image: radial-gradient(#d7c5a8 1px, transparent 1px);
-            background-size: 20px 20px;
+            max-width: 900px;
+            padding: 60px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            border-radius: 3px;
             position: relative;
-            animation: slideUp 1s ease forwards;
+            animation: slideUp 1.2s ease forwards;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><defs><pattern id="map" patternUnits="userSpaceOnUse" width="100" height="100"><path d="M10 10 Q50 20, 90 10 T90 90" stroke="%23c4a57b" stroke-width="0.5" fill="none" opacity="0.3"/><circle cx="20" cy="25" r="2" fill="%238b7355" opacity="0.4"/><circle cx="70" cy="60" r="2" fill="%238b7355" opacity="0.4"/><text x="50" y="80" font-size="10" fill="%238b6f47" opacity="0.2" text-anchor="middle">X</text></pattern></defs><rect width="100" height="100" fill="%23e8dcc4"/><rect width="100" height="100" fill="url(%23map)"/></svg>');
+            background-attachment: fixed;
+            border: 2px solid #8b7355;
         }
         @keyframes slideUp {
             from { opacity: 0; transform: translateY(50px); }
             to { opacity: 1; transform: translateY(0); }
         }
         .letter-text {
-            font-family: 'Caveat', cursive;
-            font-size: 24px;
-            line-height: 1.4;
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            line-height: 1.8;
             color: #3e2723;
         }
         .letter-text h2 {
             margin-top: 0;
-            font-size: 32px;
+            font-size: 42px;
+            color: #8b6f47;
+            font-weight: 700;
         }
         .arrow-next {
             position: absolute;
@@ -107,8 +111,22 @@
             color: #8d6e63;
             cursor: pointer;
             transition: transform 0.2s ease;
+            z-index: 10;
         }
         .arrow-next:hover {
+            transform: scale(1.3);
+        }
+        .arrow-back {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 40px;
+            color: #8d6e63;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            z-index: 10;
+        }
+        .arrow-back:hover {
             transform: scale(1.3);
         }
 
@@ -121,84 +139,191 @@
             flex-direction: column;
         }
         .album-cover {
-            width: 250px;
-            height: 350px;
-            background: #5d4037;
-            color: white;
+            width: 350px;
+            height: 480px;
+            background: linear-gradient(135deg, #3e2723 0%, #5d4037 50%, #4e342e 100%);
+            color: #d4af76;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 5px 15px 15px 5px;
-            box-shadow: inset 5px 0 20px rgba(0,0,0,0.5), 10px 10px 20px rgba(0,0,0,0.3);
+            border-radius: 8px 20px 20px 8px;
+            box-shadow: inset 8px 0 25px rgba(0,0,0,0.7), 
+                        inset -2px 0 10px rgba(0,0,0,0.5),
+                        0 15px 35px rgba(0,0,0,0.5),
+                        0 0 40px rgba(212, 175, 118, 0.1);
             cursor: pointer;
-            font-family: 'Caveat', cursive;
-            font-size: 30px;
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
             text-align: center;
             transition: transform 1s ease;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            font-weight: 700;
+            letter-spacing: 3px;
         }
         .album-cover::before { /* Lombada do livro */
             content: '';
             position: absolute;
-            left: 5px;
+            left: 8px;
             top: 0;
             bottom: 0;
-            width: 10px;
-            background: rgba(255,255,255,0.1);
+            width: 15px;
+            background: linear-gradient(90deg, rgba(0,0,0,0.3), rgba(212,175,118,0.1));
+            border-radius: 2px;
+        }
+        .album-cover::after { /* Textura de couro */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px),
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+            pointer-events: none;
+            border-radius: 8px 20px 20px 8px;
         }
         
         #opened-album {
             display: none;
-            width: 80vw;
-            max-width: 800px;
-            height: 60vh;
-            background: #fff;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-            border-radius: 10px;
+            width: 85vw;
+            max-width: 1000px;
+            height: 70vh;
+            background: linear-gradient(to right, #f5f0e8 0%, #fafaf5 50%, #f5f0e8 100%);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            border-radius: 15px;
             display: flex;
             position: relative;
             transform: scale(0);
-            animation: growAlbum 1s ease forwards;
+            animation: growAlbum 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
         }
         @keyframes growAlbum {
-            to { transform: scale(1); }
+            0% { 
+                transform: scale(0) rotateX(90deg);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1) rotateX(45deg);
+            }
+            to { 
+                transform: scale(1) rotateX(0deg);
+                opacity: 1;
+            }
         }
         .page {
             width: 50%;
             height: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 10px;
+            padding: 20px;
+            box-sizing: border-box;
+            background: linear-gradient(to right, rgba(0,0,0,0.02), transparent 50%, rgba(0,0,0,0.02));
+            position: relative;
+            animation: flipPageIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            align-content: stretch;
+        }
+        .page::after { /* Efeito de sombra de página */
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.1), transparent);
+        }
+        .photo-item {
+            width: 100%;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
-            box-sizing: border-box;
-            border: 1px solid #ddd;
-            background: #fafafa;
+            border-radius: 8px;
+            overflow: hidden;
         }
         .page img {
-            max-width: 100%;
-            max-height: 100%;
-            border-radius: 5px;
-            box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
             object-fit: contain;
-            animation: flipIn 0.6s ease-in-out;
         }
-        @keyframes flipIn {
-            0% { transform: rotateY(-90deg); opacity: 0; }
-            100% { transform: rotateY(0deg); opacity: 1; }
+        @keyframes flipPageIn {
+            0% { 
+                transform: perspective(1200px) rotateY(-90deg) rotateX(5deg);
+                opacity: 0;
+            }
+            60% {
+                transform: perspective(1200px) rotateY(10deg);
+            }
+            100% { 
+                transform: perspective(1200px) rotateY(0deg) rotateX(0deg);
+                opacity: 1;
+            }
         }
-        .page-left { border-right: 2px solid #ccc; box-shadow: inset -10px 0 20px rgba(0,0,0,0.05); }
-        .page-right { box-shadow: inset 10px 0 20px rgba(0,0,0,0.05); }
+        @keyframes flipPageOut {
+            0% { 
+                transform: perspective(1200px) rotateY(0deg);
+                opacity: 1;
+            }
+            100% { 
+                transform: perspective(1200px) rotateY(90deg);
+                opacity: 0;
+            }
+        }
+        .page-flip-out {
+            animation: flipPageOut 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+        }
+        .page-left { 
+            border-right: 3px solid #c9b896;
+            box-shadow: inset -15px 0 30px rgba(0,0,0,0.08); 
+        }
+        .page-right { 
+            box-shadow: inset 15px 0 30px rgba(0,0,0,0.08); 
+        }
         
         .arrow-album {
             position: absolute;
             bottom: 20px;
             right: 20px;
             font-size: 40px;
-            color: #333;
+            color: #8b6f47;
             cursor: pointer;
             z-index: 10;
             transition: transform 0.2s ease;
         }
         .arrow-album:hover {
+            transform: scale(1.3);
+        }
+        .arrow-album-back {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 40px;
+            color: #8b6f47;
+            cursor: pointer;
+            z-index: 10;
+            transition: transform 0.2s ease;
+        }
+        .arrow-album-back:hover {
+            transform: scale(1.3);
+        }
+        .arrow-album-back.hidden {
+            display: none;
+        }
+        .close-album {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 40px;
+            color: #8b6f47;
+            cursor: pointer;
+            z-index: 10;
+            transition: transform 0.2s ease;
+        }
+        .close-album:hover {
             transform: scale(1.3);
         }
 
@@ -216,14 +341,15 @@
 
     <div id="letter-container">
         <div class="letter-text">
-            <h2>Mariana</h2>
+            <h2>Mariana,</h2>
             <p>Minha querida, meus parabéns pelo dia das mães. Após muito altos e baixos cuidando de nossas crianças, aqui está você, uma mamãe sempre resiliente, carinhosa, amorosa, extremamente preocupada e cuidadora, embora muitas vezes abalada com algum evento da vida, sempre dando o seu melhor por eles, se abnegando de descanso em prol deles, não deixando faltar nada.</p>
             <p>Se tem alguém em que eu posso confiar de olhos fechados para cuidar deles, é você. Eu não poderia ter escolhido uma mamãe melhor para nossos meninos.</p>
             <p>Quando decidi ter animalzinhos, eu queria principalmente por você. Sei que você tem uma maior necessidade de atenção, necessidade essa que eu não podia dar para você na época, infelizmente. Eu esperava que eles te fizessem bem e feliz e, para a minha felicidade, eu nunca te vi tão feliz como eu vi você segurando aquele pedacinho de caroço de manga chupado, que, carinhosamente, chamamos de Fiore, a nossa pequena flor do nosso jardim de primavera.</p>
-            <p>Após um tempo, como uma boa mamãe observadora que é, você percebeu que o nosso neném se sentia sozinho, então me chamou para adotarmos outro neném que, para a nossa sorte, era bem mais tranquilo que o nosso carocinho de manga. Vênus, a deusa do amor, amor este que sempre esteve presente em nossa relação, veio para nos unir ainda mais, abrindo as portas para o nosso morceguinho.</p>
+            <p>Após um tempo, como uma boa mamãe observadora que é, você percebeu que o nosso neném se sentia sozinho, então me chamou para adotarmos outro neném que, para a nossa sorte, era bem mais tranquilo que o nosso carocinho de manga. Vênus, a deusa do amor, amor este que sempre esteve presente em nossa relação, veio para que este amor crescesse ainda mais, abrindo as portas para o nosso morceguinho.</p>
             <p>Minha querida, eu te amo com todo o meu coração e nossos nenéns também!</p>
             <p><b>Com muito amor, Eu, Laranjinha e Pretinho!</b></p>
         </div>
+        <div class="arrow-back" onclick="voltarParaEnvelope()">&#10142;</div>
         <div class="arrow-next" onclick="mostrarCapaAlbum()">&#10140;</div>
     </div>
 
@@ -232,13 +358,19 @@
             Nossas<br>Memórias
         </div>
         <div id="opened-album" class="hidden">
-            <div class="page page-left">
-                <img id="img-left" src="" alt="Foto Esquerda">
+            <div class="page page-left" id="page-left">
+                <img id="img-left-1" src="" alt="">
+                <img id="img-left-2" src="" alt="">
+                <img id="img-left-3" src="" alt="">
             </div>
-            <div class="page page-right">
-                <img id="img-right" src="" alt="Foto Direita">
+            <div class="page page-right" id="page-right">
+                <img id="img-right-1" src="" alt="">
+                <img id="img-right-2" src="" alt="">
+                <img id="img-right-3" src="" alt="">
             </div>
+            <div class="arrow-album-back" id="btn-prev-page" onclick="paginaAnterior()">&#8592;</div>
             <div class="arrow-album" id="btn-next-page" onclick="proximaPagina()">&#10140;</div>
+            <div class="close-album" onclick="fecharAlbum()">✕</div>
         </div>
     </div>
 
@@ -248,13 +380,19 @@
             "/static/img/foto1.jpeg", "/static/img/foto2.jpeg",
             "/static/img/foto3.jpeg", "/static/img/foto4.jpeg",
             "/static/img/foto5.jpeg", "/static/img/foto6.jpeg",
-            "/static/img/foto7.jpeg", "/static/img/foto8.jpeg"
+            "/static/img/foto7.jpeg", "/static/img/foto8.jpeg",
+            "/static/img/foto9.jpeg", "/static/img/foto10.jpeg"
         ];
         let paginaAtual = 0;
 
         function abrirCarta() {
             document.getElementById('envelope-container').classList.add('hidden');
             document.getElementById('letter-container').style.display = 'block';
+        }
+
+        function voltarParaEnvelope() {
+            document.getElementById('letter-container').classList.add('hidden');
+            document.getElementById('envelope-container').classList.remove('hidden');
         }
 
         function mostrarCapaAlbum() {
@@ -267,37 +405,82 @@
             let openedAlbum = document.getElementById('opened-album');
             openedAlbum.classList.remove('hidden');
             openedAlbum.style.display = 'flex';
+            paginaAtual = 0;
             carregarFotos();
         }
 
         function carregarFotos() {
-            const imgLeft = document.getElementById('img-left');
-            const imgRight = document.getElementById('img-right');
+            // Aplicar animação de saída nas páginas antigas
+            const pageLeft = document.getElementById('page-left');
+            const pageRight = document.getElementById('page-right');
+            pageLeft.classList.add('page-flip-out');
+            pageRight.classList.add('page-flip-out');
             
-            // Remove e adiciona as imagens para forçar a animação (flip)
-            imgLeft.src = ""; imgRight.src = "";
             setTimeout(() => {
-                imgLeft.src = fotos[paginaAtual];
-                if(paginaAtual + 1 < fotos.length) {
-                    imgRight.style.display = 'block';
-                    imgRight.src = fotos[paginaAtual + 1];
-                } else {
-                    imgRight.style.display = 'none'; // Se for ímpar, esconde
-                }
-            }, 50);
+                pageLeft.classList.remove('page-flip-out');
+                pageRight.classList.remove('page-flip-out');
+                
+                // Página esquerda: 3 fotos
+                const fotoEsquerda = [0, 1, 2];
+                fotoEsquerda.forEach((index, i) => {
+                    const fotoIndex = paginaAtual + index;
+                    const imgElement = document.getElementById(`img-left-${i + 1}`);
+                    if (fotoIndex < fotos.length) {
+                        imgElement.src = fotos[fotoIndex];
+                        imgElement.style.display = 'block';
+                    } else {
+                        imgElement.style.display = 'none';
+                    }
+                });
 
-            // Esconder a seta se for a última página
-            if(paginaAtual + 2 >= fotos.length) {
-                document.getElementById('btn-next-page').style.display = 'none';
-            }
+                // Página direita: próximas 3 fotos
+                const fotosDireita = [3, 4, 5];
+                fotosDireita.forEach((offset, i) => {
+                    const fotoIndex = paginaAtual + offset;
+                    const imgElement = document.getElementById(`img-right-${i + 1}`);
+                    if (fotoIndex < fotos.length) {
+                        imgElement.src = fotos[fotoIndex];
+                        imgElement.style.display = 'block';
+                    } else {
+                        imgElement.style.display = 'none';
+                    }
+                });
+                
+                // Mostrar/esconder botões de navegação
+                if(paginaAtual === 0) {
+                    document.getElementById('btn-prev-page').classList.add('hidden');
+                } else {
+                    document.getElementById('btn-prev-page').classList.remove('hidden');
+                }
+
+                if(paginaAtual + 6 >= fotos.length) {
+                    document.getElementById('btn-next-page').style.display = 'none';
+                } else {
+                    document.getElementById('btn-next-page').style.display = 'block';
+                }
+            }, 500);
         }
 
         function proximaPagina() {
-            if (paginaAtual + 2 < fotos.length) {
-                paginaAtual += 2;
+            if (paginaAtual + 6 < fotos.length) {
+                paginaAtual += 6;
                 carregarFotos();
             }
         }
+
+        function paginaAnterior() {
+            if (paginaAtual >= 6) {
+                paginaAtual -= 6;
+                carregarFotos();
+            }
+        }
+
+        function fecharAlbum() {
+            document.getElementById('opened-album').classList.add('hidden');
+            document.getElementById('album-cover').classList.remove('hidden');
+            document.getElementById('album-container').style.display = 'none';
+            document.getElementById('letter-container').style.display = 'block';
+        }
     </script>
 </body>
-</html>echo "# dia-das-maes" >> README.md
+</html>
