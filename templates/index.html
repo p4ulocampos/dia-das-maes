@@ -4,107 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para Mariana</title>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
     <style>
         body {
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             background-color: #fce4ec;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-family: sans-serif;
-            overflow: hidden;
+            display: flex; justify-content: center; align-items: center;
+            height: 100vh; font-family: sans-serif; overflow: hidden;
         }
 
         /* --- SESSÃO 1: ENVELOPE --- */
-        #envelope-container {
-            cursor: pointer;
-            position: relative;
-            transition: transform 0.3s ease;
-        }
+        #envelope-container { cursor: pointer; position: relative; transition: transform 0.3s ease; }
         #envelope-container:hover { transform: scale(1.05); }
         .envelope {
-            width: 300px;
-            height: 200px;
-            background-color: #d1a3a4;
-            position: relative;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            border-radius: 5px;
+            width: 300px; height: 200px; background-color: #d1a3a4;
+            position: relative; box-shadow: 0 10px 20px rgba(0,0,0,0.2); border-radius: 5px;
         }
         .envelope::before {
-            content: '';
-            position: absolute; top: 0; left: 0;
-            border-top: 100px solid #bd8c8d;
-            border-right: 150px solid transparent;
-            border-left: 150px solid transparent;
-            transform-origin: top;
-            transition: transform 0.5s ease;
-            z-index: 3;
+            content: ''; position: absolute; top: 0; left: 0;
+            border-top: 100px solid #bd8c8d; border-right: 150px solid transparent; border-left: 150px solid transparent;
+            transform-origin: top; transition: transform 0.5s ease; z-index: 3;
         }
-        #envelope-container:hover .envelope::before { transform: rotateX(30deg); }
+        #envelope-container:hover .envelope::before { transform: rotateX(50deg); }
         .envelope::after {
-            content: '';
-            position: absolute; bottom: 0; left: 0;
-            border-bottom: 100px solid #e3b7b8;
-            border-right: 150px solid #dba9aa;
-            border-left: 150px solid #dba9aa;
+            content: ''; position: absolute; bottom: 0; left: 0;
+            border-bottom: 100px solid #e3b7b8; border-right: 150px solid #dba9aa; border-left: 150px solid #dba9aa;
             z-index: 2;
         }
         .destinatario {
-            position: absolute; bottom: 20px; width: 100%;
-            text-align: center; font-family: 'Playfair Display', serif;
-            font-size: 16px; color: #8b6f47; z-index: 4;
-            font-weight: 700; letter-spacing: 2px;
+            position: absolute; bottom: 20px; width: 100%; text-align: center;
+            font-family: 'Playfair Display', serif; font-size: 16px; color: #80633b;
+            z-index: 4; font-weight: 700; letter-spacing: 2px;
         }
 
         /* --- SESSÃO 2: CARTA --- */
         #letter-container {
-            display: none;
-            width: 90%;
-            max-width: 800px;
-            padding: 80px 60px;
-            position: relative;
-            animation: slideUp 1.2s ease forwards;
+            display: none; width: 90%; max-width: 800px; padding: 80px 60px;
+            position: relative; animation: slideUp 1.2s ease forwards;
             background-color: #f4ecd8;
             background-image: 
                 radial-gradient(circle, transparent 60%, rgba(139, 69, 19, 0.15) 100%),
                 url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
             box-shadow: inset 0 0 60px rgba(139, 69, 19, 0.4), inset 0 0 15px rgba(139, 69, 19, 0.6), 10px 15px 30px rgba(0,0,0,0.4);
-            border-radius: 3px 15px 5px 20px / 20px 4px 15px 5px;
-            border: 1px solid rgba(139, 69, 19, 0.3);
+            border-radius: 3px 15px 5px 20px / 20px 4px 15px 5px; border: 1px solid rgba(139, 69, 19, 0.3);
         }
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .letter-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 19px; line-height: 1.7; color: #3e2723;
-            text-align: justify;
-        }
-        .letter-text h2 {
-            margin-top: 0; font-size: 42px; color: #5d4037; border-bottom: 2px dashed rgba(139, 69, 19, 0.3);
-            padding-bottom: 10px; margin-bottom: 30px;
-        }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+        .letter-text { font-family: 'Playfair Display', serif; font-size: 19px; line-height: 1.7; color: #3e2723; text-align: justify; }
+        .letter-text h2 { margin-top: 0; font-size: 42px; color: #5d4037; border-bottom: 2px dashed rgba(139, 69, 19, 0.3); padding-bottom: 10px; margin-bottom: 30px; }
 
-        .arrow-next, .arrow-back {
-            position: absolute; bottom: 30px; font-size: 40px; color: #5d4037;
-            cursor: pointer; transition: transform 0.2s ease; z-index: 10;
-        }
+        .arrow-next, .arrow-back { position: absolute; bottom: 30px; font-size: 40px; color: #5d4037; cursor: pointer; transition: transform 0.2s ease; z-index: 10; }
         .arrow-next { right: 40px; }
         .arrow-back { left: 40px; transform: scaleX(-1); }
         .arrow-next:hover { transform: scale(1.3); }
         .arrow-back:hover { transform: scaleX(-1) scale(1.3); }
 
-        /* --- SESSÃO 3: ÁLBUM --- */
-        #album-container {
-            display: none;
-            perspective: 1000px;
-            flex-direction: column;
-            align-items: center;
-        }
+        /* --- FLOR DA FIORE --- */
+        .flor-container { position: relative; width: 100px; height: 100px; margin: 20px auto; display: block; }
+        .miolo { position: absolute; top: 35px; left: 35px; width: 30px; height: 30px; background-color: #ffb703; border-radius: 50%; z-index: 2; box-shadow: inset 0 0 10px #fb8500, 0 0 5px rgba(0,0,0,0.2); }
+        .petala { position: absolute; top: 10px; left: 40px; width: 20px; height: 60px; background: linear-gradient(to bottom, #ffb5a7, #ffc2d1); border-radius: 50px 50px 0 0; transform-origin: 10px 40px; z-index: 1; opacity: 0.9; transform: rotate(var(--r)) scale(0); animation: desabrochar 2s ease-out forwards; animation-delay: 1.2s; }
+        @keyframes desabrochar { to { transform: rotate(var(--r)) scale(1); } }
+
+        /* --- SESSÃO 3: ÁLBUM (4 FOTOS POR PÁGINA) --- */
+        #album-container { display: none; perspective: 1000px; flex-direction: column; align-items: center; }
         .album-cover {
             width: 350px; height: 480px;
             background: linear-gradient(135deg, #3e2723 0%, #5d4037 50%, #4e342e 100%);
@@ -114,7 +75,7 @@
         }
         
         #opened-album {
-            display: none; width: 90vw; max-width: 1000px; height: 75vh;
+            display: none; width: 95vw; max-width: 1100px; height: 85vh; /* Aumentado para caber 8 fotos */
             background: linear-gradient(to right, #f5f0e8 0%, #fafaf5 50%, #f5f0e8 100%);
             box-shadow: 0 20px 50px rgba(0,0,0,0.5); border-radius: 15px;
             display: flex; position: relative; animation: growAlbum 1s forwards;
@@ -122,53 +83,58 @@
         @keyframes growAlbum { from { transform: scale(0); } to { transform: scale(1); } }
 
         .page {
-            width: 50%; height: 100%; display: flex; align-items: center; justify-content: center;
-            padding: 40px; box-sizing: border-box; position: relative;
+            width: 50%; height: 100%; display: grid; /* ✨ O TRUQUE ESTÁ AQUI (GRID 2x2) ✨ */
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 15px; padding: 30px; box-sizing: border-box; position: relative;
             animation: flipPageIn 0.8s ease-out;
         }
         .page-left { border-right: 2px solid #c9b896; }
 
         .page img {
-            max-width: 100%; max-height: 100%; border-radius: 5px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            cursor: pointer; transition: transform 0.3s ease;
-            object-fit: contain;
+            width: 100%; height: 100%; border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            cursor: pointer; transition: transform 0.3s ease; object-fit: contain;
         }
-        .page img:hover { transform: scale(1.05); }
+        .page img:hover { transform: scale(1.08); z-index: 5; }
 
-        /* Animações de Folhear */
         @keyframes flipPageIn {
-            0% { transform: perspective(1200px) rotateY(-90deg); opacity: 0; }
+            0% { transform: perspective(1200px) rotateY(90deg); opacity: 0; }
             100% { transform: perspective(1200px) rotateY(0deg); opacity: 1; }
         }
         @keyframes flipPageOut {
             0% { transform: perspective(1200px) rotateY(0deg); opacity: 1; }
-            100% { transform: perspective(1200px) rotateY(90deg); opacity: 0; }
+            100% { transform: perspective(1200px) rotateY(-90deg); opacity: 0; }
         }
         .page-flip-out { animation: flipPageOut 0.6s ease-in forwards !important; }
 
-        .arrow-album, .arrow-album-back {
-            position: absolute; bottom: 20px; font-size: 40px; color: #8b6f47;
-            cursor: pointer; z-index: 10; transition: transform 0.2s ease;
-        }
+        .arrow-album, .arrow-album-back { position: absolute; bottom: 15px; font-size: 40px; color: #8b6f47; cursor: pointer; z-index: 10; transition: transform 0.2s ease; }
         .arrow-album { right: 20px; }
         .arrow-album-back { left: 20px; transform: scaleX(-1); }
         .arrow-album:hover { transform: scale(1.3); }
         .arrow-album-back:hover { transform: scaleX(-1) scale(1.3); }
+        .close-album { position: absolute; top: 15px; right: 20px; font-size: 30px; color: #8b6f47; cursor: pointer; z-index: 10; }
 
-        .close-album {
-            position: absolute; top: 20px; right: 20px; font-size: 30px;
-            color: #8b6f47; cursor: pointer;
-        }
-
-        /* --- LIGHTBOX --- */
-        #lightbox {
+        /* --- SESSÃO 4: BUQUÊ E TEXTO FINAL --- */
+        #bouquet-container {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9); z-index: 1000; align-items: center; justify-content: center;
+            background-color: rgba(252, 228, 236, 0.95); z-index: 1000;
+            flex-direction: column; align-items: center; justify-content: center;
+            animation: fadeInBouquet 1.5s ease-in-out forwards;
         }
+        .svg-bouquet { width: 320px; height: 380px; filter: drop-shadow(0px 15px 20px rgba(0,0,0,0.2)); animation: floatBouquet 3s ease-in-out infinite; margin-bottom: 20px; }
+        @keyframes floatBouquet { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+        .moms-day-text {
+            font-family: 'Dancing Script', cursive; font-size: 58px; color: #5d4037;
+            font-weight: 500; text-align: center; margin-top: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1); animation: slideUpText 1.5s ease-out forwards;
+        }
+        @keyframes slideUpText { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* LIGHTBOX */
+        #lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; align-items: center; justify-content: center; cursor: zoom-out; }
         #lightbox img { max-width: 90%; max-height: 90%; border: 3px solid white; animation: zoomIn 0.3s; }
         @keyframes zoomIn { from { transform: scale(0.8); } to { transform: scale(1); } }
-        
         .hidden { display: none !important; }
     </style>
 </head>
@@ -191,6 +157,18 @@
             <p>Após um tempo, como uma boa mamãe observadora que é, você percebeu que o nosso neném se sentia sozinho, então me chamou para adotarmos outro neném que, para a nossa sorte, era bem mais tranquilo que o nosso carocinho de manga. Vênus, a deusa do amor, amor este que sempre esteve presente em nossa relação, veio para que este amor crescesse ainda mais, abrindo as portas para o nosso morceguinho.</p>
             <p>Minha querida, eu te amo com todo o meu coração e nossos nenéns também!</p>
             <p><b>Com muito amor, Eu, Laranjinha e Pretinho!</b></p>
+            
+            <div class="flor-container">
+                <div class="petala" style="--r: 0deg;"></div>
+                <div class="petala" style="--r: 45deg;"></div>
+                <div class="petala" style="--r: 90deg;"></div>
+                <div class="petala" style="--r: 135deg;"></div>
+                <div class="petala" style="--r: 180deg;"></div>
+                <div class="petala" style="--r: 225deg;"></div>
+                <div class="petala" style="--r: 270deg;"></div>
+                <div class="petala" style="--r: 315deg;"></div>
+                <div class="miolo"></div>
+            </div>
         </div>
         <div class="arrow-back" onclick="voltarParaEnvelope()">&#10140;</div>
         <div class="arrow-next" onclick="mostrarCapaAlbum()">&#10140;</div>
@@ -200,10 +178,16 @@
         <div class="album-cover" id="album-cover" onclick="abrirAlbum()">Nossas<br>Memórias</div>
         <div id="opened-album" class="hidden">
             <div class="page page-left" id="page-left-el">
-                <img id="img-left" src="" alt="" onclick="expandirFoto(this.src)">
+                <img id="img-L1" src="" onclick="expandirFoto(this.src)">
+                <img id="img-L2" src="" onclick="expandirFoto(this.src)">
+                <img id="img-L3" src="" onclick="expandirFoto(this.src)">
+                <img id="img-L4" src="" onclick="expandirFoto(this.src)">
             </div>
             <div class="page page-right" id="page-right-el">
-                <img id="img-right" src="" alt="" onclick="expandirFoto(this.src)">
+                <img id="img-R1" src="" onclick="expandirFoto(this.src)">
+                <img id="img-R2" src="" onclick="expandirFoto(this.src)">
+                <img id="img-R3" src="" onclick="expandirFoto(this.src)">
+                <img id="img-R4" src="" onclick="expandirFoto(this.src)">
             </div>
             <div class="arrow-album-back" id="btn-prev-page" onclick="paginaAnterior()">&#10140;</div>
             <div class="arrow-album" id="btn-next-page" onclick="proximaPagina()">&#10140;</div>
@@ -211,13 +195,36 @@
         </div>
     </div>
 
+    <div id="bouquet-container" class="hidden">
+        <svg class="svg-bouquet" viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg">
+            <path d="M60 120 L140 120 L110 230 L90 230 Z" fill="#d4a373"/>
+            <path d="M100 120 L100 210 M80 100 L95 210 M120 100 L105 210 M60 90 L90 210 M140 90 L110 210" stroke="#52796f" stroke-width="3" fill="none"/>
+            <defs><g id="rose"><circle cx="0" cy="0" r="14" /><circle cx="0" cy="2" r="10" fill="rgba(0,0,0,0.15)"/><circle cx="0" cy="-2" r="6" fill="rgba(0,0,0,0.3)"/><path d="M -8 -6 A 8 8 0 0 1 8 -6" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" fill="none"/></g></defs>
+            <use href="#rose" x="50" y="90" fill="#ffffff"/><use href="#rose" x="150" y="90" fill="#ffffff"/><use href="#rose" x="70" y="115" fill="#ffffff"/><use href="#rose" x="130" y="115" fill="#ffffff"/>
+            <use href="#rose" x="75" y="75" fill="#d62828"/><use href="#rose" x="125" y="75" fill="#d62828"/><use href="#rose" x="100" y="100" fill="#d62828"/>
+            <use href="#rose" x="100" y="45" fill="#0077b6"/><use href="#rose" x="75" y="55" fill="#0077b6"/><use href="#rose" x="125" y="55" fill="#0077b6"/>
+            <path d="M40 100 Q100 140 160 100 L110 240 L90 240 Z" fill="#faedcd"/>
+            <path d="M85 180 Q100 190 115 180 L120 195 Q100 205 80 195 Z" fill="#e76f51"/>
+            <path d="M100 185 C80 165, 70 195, 100 185 C120 165, 130 195, 100 185" fill="#f4a261"/>
+        </svg>
+        <div class="moms-day-text">Feliz Dia Das Mamães!</div>
+    </div>
+
     <script>
         const fotos = [
-            "/static/img/foto1.jpeg", "/static/img/foto2.jpeg",
-            "/static/img/foto3.jpeg", "/static/img/foto4.jpeg",
-            "/static/img/foto5.jpeg", "/static/img/foto6.jpeg",
-            "/static/img/foto7.jpeg", "/static/img/foto8.jpeg",
-            "/static/img/foto9.jpeg", "/static/img/foto10.jpeg"
+            "/static/img/foto1.jpeg", "/static/img/foto2.jpeg", "/static/img/foto3.jpeg", "/static/img/foto4.jpeg",
+            "/static/img/foto5.jpeg", "/static/img/foto6.jpeg", "/static/img/foto7.jpeg", "/static/img/foto8.jpeg",
+            "/static/img/foto9.jpeg", "/static/img/foto10.jpeg", "/static/img/foto11.jpeg", "/static/img/foto12.jpeg",
+            "/static/img/foto13.jpeg", "/static/img/foto14.jpeg", "/static/img/foto15.jpeg", "/static/img/foto16.jpeg",
+            "/static/img/foto17.jpeg", "/static/img/foto18.jpeg", "/static/img/foto19.jpeg", "/static/img/foto20.jpeg",
+            "/static/img/foto21.jpeg", "/static/img/foto22.jpeg", "/static/img/foto23.jpeg", "/static/img/foto24.jpeg",
+            "/static/img/foto25.jpeg", "/static/img/foto26.jpeg", "/static/img/foto27.jpeg", "/static/img/foto28.jpeg",
+            "/static/img/foto29.jpeg", "/static/img/foto30.jpeg", "/static/img/foto31.jpeg", "/static/img/foto32.jpeg",
+            "/static/img/foto33.jpeg", "/static/img/foto34.jpeg", "/static/img/foto35.jpeg", "/static/img/foto36.jpeg",
+            "/static/img/foto37.jpeg", "/static/img/foto38.jpeg", "/static/img/foto39.jpeg", "/static/img/foto40.jpeg",
+            "/static/img/foto41.jpeg", "/static/img/foto42.jpeg", "/static/img/foto43.jpeg", "/static/img/foto44.jpeg",
+            "/static/img/foto45.jpeg", "/static/img/foto46.jpeg", "/static/img/foto47.jpeg", "/static/img/foto48.jpeg",
+            "/static/img/foto49.jpeg", "/static/img/foto50.jpeg"
         ];
         let paginaAtual = 0;
 
@@ -248,44 +255,63 @@
             const pageLeft = document.getElementById('page-left-el');
             const pageRight = document.getElementById('page-right-el');
             
-            // Adiciona animação de saída
             pageLeft.classList.add('page-flip-out');
             pageRight.classList.add('page-flip-out');
 
             setTimeout(() => {
-                document.getElementById('img-left').src = fotos[paginaAtual] || "";
-                document.getElementById('img-right').src = fotos[paginaAtual + 1] || "";
+                for (let i = 1; i <= 4; i++) {
+                    let img = document.getElementById('img-L' + i);
+                    let index = paginaAtual + (i - 1);
+                    if (fotos[index]) {
+                        img.src = fotos[index];
+                        img.style.display = "block";
+                    } else {
+                        img.style.display = "none";
+                    }
+                }
+
+                for (let i = 1; i <= 4; i++) {
+                    let img = document.getElementById('img-R' + i);
+                    let index = paginaAtual + 3 + i;
+                    if (fotos[index]) {
+                        img.src = fotos[index];
+                        img.style.display = "block";
+                    } else {
+                        img.style.display = "none";
+                    }
+                }
                 
-                // Remove animação de saída para a de entrada agir
                 pageLeft.classList.remove('page-flip-out');
                 pageRight.classList.remove('page-flip-out');
                 
-                // Controle das setas
                 document.getElementById('btn-prev-page').classList.toggle('hidden', paginaAtual === 0);
-                document.getElementById('btn-next-page').style.display = (paginaAtual + 2 >= fotos.length) ? 'none' : 'block';
+                document.getElementById('btn-next-page').style.display = (paginaAtual + 8 >= fotos.length) ? 'none' : 'block';
             }, 550);
         }
 
         function proximaPagina() {
-            if (paginaAtual + 2 < fotos.length) {
-                paginaAtual += 2;
+            if (paginaAtual + 8 < fotos.length) {
+                paginaAtual += 8;
                 carregarFotos();
             }
         }
 
         function paginaAnterior() {
-            if (paginaAtual >= 2) {
-                paginaAtual -= 2;
+            if (paginaAtual >= 8) {
+                paginaAtual -= 8;
                 carregarFotos();
             }
         }
 
         function fecharAlbum() {
-            // Esconde o álbum e volta a mostrar a capa e a CARTA
             document.getElementById('opened-album').classList.add('hidden');
-            document.getElementById('album-cover').classList.remove('hidden');
             document.getElementById('album-container').style.display = 'none';
-            document.getElementById('letter-container').style.display = 'block';
+            document.getElementById('envelope-container').classList.add('hidden');
+            document.getElementById('letter-container').style.display = 'none';
+
+            let bouquetContainer = document.getElementById('bouquet-container');
+            bouquetContainer.style.display = 'flex';
+            bouquetContainer.classList.remove('hidden');
         }
 
         function expandirFoto(src) {
